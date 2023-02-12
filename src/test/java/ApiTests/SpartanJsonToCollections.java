@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Map;
 
 public class SpartanJsonToCollections {
@@ -46,10 +47,34 @@ public class SpartanJsonToCollections {
         Assert.assertEquals(spartanMap.get("name"),"Nona");
         Assert.assertEquals(spartanMap.get("gender"),"Female");
 
+    }
+    @Test
+    public void test2(){
+        Response response = given().accept(ContentType.JSON)
+                .when().get("/api/spartans");
 
+        //response.prettyPrint();
 
+        //convert full json body to list Of Maps.
 
+        List<Map<String,Object>> listOfSpartans = response.body().as(List.class);
+
+        System.out.println(listOfSpartans.get(0));
+        Map<String,Object> firstSpartan = listOfSpartans.get(0);
+        System.out.println("firstSpartan = " + firstSpartan);
+
+        System.out.println("firstSpartan.get(\"name\") = " + firstSpartan.get("name"));
+
+        int counter =0;
+        for (Map<String, Object> listOfSpartan : listOfSpartans) {
+
+            System.out.println(counter+"-Spartan: "+listOfSpartan);
+
+            counter++;
+
+        }
 
 
     }
+
 }
