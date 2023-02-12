@@ -65,11 +65,10 @@ public class SpartanJsonToCollections {
 
         System.out.println("firstSpartan.get(\"name\") = " + firstSpartan.get("name"));
 
-        int counter =0;
+        int counter =1;
         for (Map<String, Object> listOfSpartan : listOfSpartans) {
 
             System.out.println(counter+"-Spartan: "+listOfSpartan);
-
             counter++;
 
         }
