@@ -46,6 +46,8 @@ public class SpartanTests {
         Assert.assertEquals(response.contentType(),"application/json");
         Assert.assertTrue(response.body().asString().contains("Mike"));
 
+        response.prettyPrint();
+
     }
 
 
