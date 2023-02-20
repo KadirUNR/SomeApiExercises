@@ -36,7 +36,6 @@ public class SpartanTestWithPathMethod {
 
 
 
-
     @Test
     public void test2(){
 
